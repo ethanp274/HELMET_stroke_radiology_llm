@@ -1,0 +1,59 @@
+# --- Patient data: never commit ---
+# Radiology reports and every derived text dataset are patient data.
+# Nothing under data/ is ever committed.
+data/*
+*.csv
+*.xlsx
+*.dta
+*.parquet
+*.jsonl
+data/
+models/
+*.safetensors
+*.bin
+*.pt
+
+# --- Experiment tracking & caches ---
+wandb/
+cache/
+lightning_logs/
+.joblib/
+
+# --- Generated figures and outputs ---
+results/figures/
+results/raw_model_output/
+*.png
+*.pdf
+*.svg
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Environments ---
+.venv/
+.*venv/
+venv/
+env/
+.env
+
+# --- Tooling ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

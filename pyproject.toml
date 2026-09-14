@@ -1,0 +1,33 @@
+[project]
+name = "helmet-mass-effect-llm"
+version = "1.0.0"
+description = "HELMET radiology report language models: fine-tuning Clinical-Longformer to predict midline-shift severity after large MCA stroke (npj Digit. Med. 2025)."
+readme = "README.md"
+requires-python = "==3.11.*"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Ethan Phillips", email = "ethan.phillips@phc.ox.ac.uk" }]
+keywords = ["stroke", "cerebral-edema", "clinical-nlp", "longformer", "radiology-reports"]
+
+# The data pipeline and every pinned dependency come from the main package;
+# accelerate is the one extra the transformers Trainer needs.
+dependencies = [
+    "helmet-mass-effect-pred>=1.0.0,<2",
+    "accelerate==0.30.1",
+]
+
+[project.urls]
+Repository = "https://github.com/ethanp274/HELMET_stroke_radiology_llm"
+
+[tool.uv.sources]
+helmet-mass-effect-pred = { git = "https://github.com/ethanp274/HELMET_stroke_mass_effect_prediction", tag = "v1.0.0" }
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/helmet_mass_effect_llm"]
+
+[tool.uv]
+package = true
